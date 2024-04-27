@@ -2,7 +2,6 @@
   "name": "firstapp",
   "version": "1.0.0",
   "description": "This is first react where we are configuring npm as well as",
-  "main": "App.js",
   "scripts": {
     "test": "jest"
   },
@@ -10,6 +9,16 @@
   "author": "Neelam Jain",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.12.0"
-  }
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browserslist":[
+    "last 2 versions"
+  ]
+
+
 }
