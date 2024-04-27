@@ -1,0 +1,15 @@
+{
+  "name": "firstapp",
+  "version": "1.0.0",
+  "description": "This is first react where we are configuring npm as well as",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Neelam Jain",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
