@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "This is first react where we are configuring npm as well as",
   "scripts": {
+    "start":"parcel index.html",
+    "build":"parcel build index.html",
     "test": "jest"
   },
   "keywords": [],
