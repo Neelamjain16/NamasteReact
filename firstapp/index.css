@@ -5,7 +5,8 @@
 }
 
 .logo{
-    width: 200px;
+    width: 180px;
+    height: 140px;
 }
 
 .nav-items>ul{
@@ -22,16 +23,19 @@
 .res-containar{
     display: flex;
     flex-wrap: wrap;
-    margin: 25px;
-    padding-left: 40px;
+    margin: 20px 0;
+    padding:20px 0;
 }
-
+.res-card > img {
+    width: 100%;
+    border-radius: 10px;
+  }
 
 .res-card{
-    margin: 10px;
+    /* margin: 10px; */
     width: 200px;
     height: 350px;
-    padding: 5px;
+    padding: 10px;
 
 }
 
@@ -53,4 +57,41 @@
 .filter-btn{
     margin: 10px;
     cursor: pointer;
+}
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card{
+    margin: 20px;
+    width: 200px;
+    height: 400px;
+    background-color: #f0f0f0;
+
+}
+
+
+.login{
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.filter{
+    display: flex;
+}
+.menu-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 10px;
+
+}
+.menu-items{
+    width: 350px;
+    height: 150px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
 }
