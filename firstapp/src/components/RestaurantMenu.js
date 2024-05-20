@@ -2,23 +2,29 @@ import {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import Shimmer from './Shimmer';
 import {RESTAURANT_TYPE_KEY,MENU_ITEM_TYPE_KEY,MENU_URL} from '../utils/contants.js'
+import useRestaurantMenu from '../utils/useRestaurantMenu.js';
 const  RestaurantMenu=()=>{
-const [resInfo,setResInfo]=useState(null);
-const [menuItems, setMenuItems] = useState([]);
+// const [resInfo,setResInfo]=useState(null);
+// const [menuItems, setMenuItems] = useState([]);
 const {resId}=useParams();
-    useEffect(()=>{
+const resInfo=useRestaurantMenu(resId)
+console.log(resId)
+console.log(resInfo)
+    // useEffect(()=>{
      
-     fetchMenu();
+    //  fetchMenu();
 
-    },[])
-    const fetchMenu=async()=>{
-        const data=await fetch(MENU_URL+resId)
-        const json=await data.json();
-        console.log(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards)
-        setResInfo(json.data)
-        setMenuItems(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards)
-    
-    //     const restaurantData = json?.data?.cards?.map(x => x.card)?.
+    // },[])
+    // const fetchMenu=async()=>{
+    //     const data=await fetch(MENU_URL+resId)
+    //     const json=await data.json();
+    //     setResInfo(json.data)
+    //     setMenuItems(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards)
+    // }
+
+
+
+ //     const restaurantData = json?.data?.cards?.map(x => x.card)?.
     //     find(x => x && x.card['@type'] === RESTAURANT_TYPE_KEY)?.card?.info || null;
     //     console.log(restaurantData)
     
@@ -36,23 +42,27 @@ const {resId}=useParams();
     //     })
     //     setMenuItems(uniqueMenuItems);
 
-}
+
+
+
 // const {itemCards}=json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards;
     
 
- return (resInfo ===null)?(
-  <Shimmer/>
- ):(
+ if (resInfo ===null) return <Shimmer/>;
+const {name,cuisines,costForTwoMessage}=resInfo?.cards[2]?.card?.card?.info;
+const {itemCards}=resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
+console.log(itemCards)
+    return (
 <>
 <div className="menu">
-    <h1>{resInfo?.cards[2]?.card?.card?.info?.name || 'restaurant Name Not Available'}</h1>
-    <h1>{resInfo?.cards[2]?.card?.card?.info?.cuisines.join(' , ') || 'cuisine Not Available'}</h1>
-    <h1>{resInfo?.cards[2]?.card?.card?.info?.costForTwoMessage || 'cost not available'}</h1>
+    <h1>{name || 'restaurant Name Not Available'}</h1>
+    <h1>{cuisines.join(' , ') || 'cuisine Not Available'}</h1>
+    <h1>{costForTwoMessage || 'cost not available'}</h1>
 
     <h2>Menu</h2>
 
     <div className='menu-container'>
-        {menuItems.map((item)=>{
+        {itemCards.map((item)=>{
             return (
           <div key={item.card.info.id} className='menu-items'>
               <h2>{item.card.info.name}</h2>
@@ -67,7 +77,7 @@ const {resId}=useParams();
 </div>
 
 </>
-
     )
+    
 }
 export default RestaurantMenu
