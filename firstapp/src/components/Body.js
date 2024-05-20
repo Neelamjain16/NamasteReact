@@ -50,7 +50,7 @@ const fetchData= async ()=>{
 // }
 const onlineStatus=useOnlineStatus();
 
-if(onlineStatus===false) return <h1>Looks like you are offline check your internet connection</h1>
+if(onlineStatus===false) return <h1>Looks like you are offline!! Please check your internet connection</h1>
     return listOfRestaurant.length===0? (
     <Shimmer/> 
   ): (
