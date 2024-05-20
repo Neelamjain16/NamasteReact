@@ -8,26 +8,7 @@ const Body=()=>{
   const [listOfRestaurant,setListOfRestaurant]=useState([]);
   const [searchText,setSearchText]=useState('');
   const [filteredRestaurant,setFilteredRestaurant]=useState([]);
-  //normal js variable
-//   let listOfRestaurantJs=[{
-//     data:{
-//       id:'1',
-//       name:' Pasta Corner',
-//       cuisine:['Italian','Pasta'],
-//       avgRating:'3.5',
-//       costForTwo:'20000',
-//       img:'https://img.freepik.com/free-photo/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table_2829-19744.jpg'
-//     }
-//   },  {
-//    data:{
-//     id:'2',
-//     name:'Dominos',
-//     cuisine:['Italian','Pasta'],
-//     avgRating:'4.5',
-//     costForTwo:'20000',
-//     img:'https://img.freepik.com/free-photo/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table_2829-19744.jpg'
-// }}
-//   ]
+  
 console.log('body rendered')
 
 useEffect(()=>{
